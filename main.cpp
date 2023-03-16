@@ -7,6 +7,7 @@
 * @Desc     :
 *******************************************************************************/
 # include "include/hasp_adapter.h"
+# include "stdio.h"
 void wait4key(char *hint)
 {
     fflush(stdout);
@@ -16,16 +17,8 @@ void wait4key(char *hint)
         ;
 }
 int main() {
-    hasp_adapter *adapter = new hasp_adapter();
-    int status;
-    char *info;
-    status = adapter->login(101);
-    printf("登录状态为:%d\n", status);
-    info = adapter->getInfo();
-    printf("获取info状态:%s\n", info);
-    info = adapter->getSessionInfo();
+    char * info;
+    info = getSessionInfo(301);
     printf("获取Session info状态:%s\n", info);
-//    status = adapter->logout();
-//    printf("log out 状态:%d\n",status);
     return 0;
 };

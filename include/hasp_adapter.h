@@ -6,25 +6,7 @@
 * @Software : Samples
 * @Desc     :
 *******************************************************************************/
-#ifndef HASP_DEMO_HASP_ADAPTER_H
-#define HASP_DEMO_HASP_ADAPTER_H
-#include "stdio.h"
 #include "hasp_api.h"
-
-class hasp_adapter{
-private:
-    hasp_status_t   status;
-    hasp_handle_t   handle;
-    const char     *scope;
-    char *info = 0;
-public:
-    int login(int feature_id);
-    char * getInfo();
-    char * getSessionInfo();
-    int logout();
-    int login_scope(int feature_id);
-
+extern "C"{
+    char * getSessionInfo(int feature_id);
 };
-
-
-#endif //HASP_DEMO_HASP_ADAPTER_H
