@@ -18,7 +18,15 @@ void wait4key(char *hint)
 }
 int main() {
     char * info;
-    info = getSessionInfo(301);
-    printf("获取Session info状态:%s\n", info);
+    int status;
+    HaspStruct haspStruct;
+    status = login();
+    printf("login status = %d\n",status);
+
+    haspStruct = getInfo();
+    printf("status:%d,获取info状态:%s\n", haspStruct.status,haspStruct.info);
+
+    haspStruct = getSessionInfo(301);
+    printf("status:%d,获取Session info状态:%s\n",haspStruct.status, haspStruct.info);
     return 0;
 };

@@ -7,6 +7,13 @@
 * @Desc     :
 *******************************************************************************/
 #include "hasp_api.h"
+struct HaspStruct
+{
+    int status;
+    char *info;
+};
 extern "C"{
-    char * getSessionInfo(int feature_id);
+    int login();
+    HaspStruct  getSessionInfo(int feature_id);
+    HaspStruct getInfo();
 };
