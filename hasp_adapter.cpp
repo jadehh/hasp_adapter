@@ -11,7 +11,7 @@
 #include <iostream>
 using namespace std;
 int hasp_adapter::login(int feature_id) {
-    printf("ç™»å½•æ¨¡å—");
+    printf("µÇÂ¼Ä£¿é");
     status = hasp_login(feature_id,
                         (hasp_vendor_code_t)vendor_code,
                         &handle);
