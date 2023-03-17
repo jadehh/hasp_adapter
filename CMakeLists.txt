@@ -1,9 +1,13 @@
-cmake_minimum_required(VERSION 3.19)
-project(hasp_adapter_x86_64)
+cmake_minimum_required(VERSION 3.15)
+project(hasp_adapter)
+set(project_name "hasp_adapter_${CMAKE_SYSTEM_PROCESSOR}")
 set(CMAKE_CXX_FLAGS)
-add_library(${PROJECT_NAME} SHARED   hasp_adapter.cpp)
-add_executable(${PROJECT_NAME} main.cpp hasp_adapter.cpp)
-target_link_libraries(${PROJECT_NAME}
-        ${PROJECT_SOURCE_DIR}/lib/Linux/libhasp_linux_x86_64_34033.a
-        pthread)
+#add_library(${project_name} SHARED   hasp_adapter.cpp)
+message(${project_name})
+add_executable(${project_name} main.cpp hasp_adapter.cpp)
 
+if( ${CMAKE_SYSTEM_PROCESSOR} MATCHES  "aarch64")
+    target_link_libraries(${project_name} ${PROJECT_SOURCE_DIR}/lib/Linux/${CMAKE_SYSTEM_PROCESSOR}/libhasp_linux_arm64_34033.a pthread)
+else()
+    target_link_libraries(${project_name} ${PROJECT_SOURCE_DIR}/lib/Linux/${CMAKE_SYSTEM_PROCESSOR}/libhasp_linux_x86_64_34033.a pthread)
+endif()
