@@ -8,16 +8,18 @@
 *******************************************************************************/
 #include "include/hasp_adapter.h"
 #include "include/hasp_vcode.h"       /* contains HASP DEMOMA vendor code */
-#include "stdio.h"
-int login(){
+HaspStruct login(int feature_id){
     hasp_handle_t   handle;
-    int status = hasp_login(0,
+    int status = hasp_login(feature_id,
                             (hasp_vendor_code_t) vendor_code,
                             &handle);
-    if (status == 0){
-        hasp_logout(handle);
-    }
-    return status;
+    HaspStruct haspStruct{};
+    haspStruct.handle = handle;
+    haspStruct.status = status;
+    return haspStruct;
+}
+void logout(int handle){
+    hasp_logout(handle);
 }
 
 HaspStruct getSessionInfo(int feature_id) {
@@ -33,11 +35,10 @@ HaspStruct getSessionInfo(int feature_id) {
     HaspStruct haspStruct{};
     haspStruct.status = status;
     haspStruct.info = info;
+    logout(handle);
     return haspStruct;
 }
 HaspStruct  getInfo(){
-    hasp_status_t   status;
-    hasp_handle_t   handle;
     const char     *scope;
     char *info = 0;
     scope =
@@ -59,5 +60,4 @@ HaspStruct  getInfo(){
     haspStruct.status = 0;
     haspStruct.info = info;
     return haspStruct;
-
 }

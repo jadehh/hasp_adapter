@@ -10,10 +10,12 @@
 struct HaspStruct
 {
     int status;
+    int handle;
     char *info;
 };
 extern "C"{
-    int login();
-    HaspStruct  getSessionInfo(int feature_id);
-    HaspStruct getInfo();
+    __declspec(dllexport) HaspStruct login(int feature_id);
+    __declspec(dllexport) void logout(int handle);
+    __declspec(dllexport) HaspStruct  getSessionInfo(int feature_id);
+    __declspec(dllexport) HaspStruct getInfo();
 };
