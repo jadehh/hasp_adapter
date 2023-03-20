@@ -19,5 +19,5 @@ extern "C"{
     HaspStruct login(int feature_id);
     void logout(hasp_u32_t handle);
     HaspStruct  getSessionInfo(int feature_id);
-    __declspec(dllexport) HaspStruct getInfo();
+    HaspStruct getInfo();
 };
