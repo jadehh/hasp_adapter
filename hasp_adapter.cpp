@@ -14,11 +14,11 @@ HaspStruct login(int feature_id){
                             (hasp_vendor_code_t) vendor_code,
                             &handle);
     HaspStruct haspStruct{};
-    haspStruct.handle = handle;
     haspStruct.status = status;
+    haspStruct.handle = handle;
     return haspStruct;
 }
-void logout(int handle){
+void logout(hasp_u32_t handle){
     hasp_logout(handle);
 }
 
@@ -33,13 +33,13 @@ HaspStruct getSessionInfo(int feature_id) {
                          &info);
 
     HaspStruct haspStruct{};
+    haspStruct.handle = handle;
     haspStruct.status = status;
     haspStruct.info = info;
-    logout(handle);
     return haspStruct;
 }
 HaspStruct  getInfo(){
-    const char     *scope;
+    const char  *scope;
     char *info = 0;
     scope =
             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"
