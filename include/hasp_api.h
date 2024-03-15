@@ -1441,6 +1441,8 @@ void HASP_CALLCONV hasp_free(char *info);
  *                      <li>HASP_INV_UPDATE_DATA</li> Required XML tags
  *                        not found; Contents in binary data are missing
  *                        or invalid
+ *
+ *                        
  *                      <li>HASP_INV_UPDATE_NOTSUPP</li> Update request is
  *                        not supported by Sentinel protection key
  *                      <li>HASP_INV_UPDATE_CNTR</li> Update counter not
