@@ -15,7 +15,6 @@
 #include <string>
 #include <string.h>
 
-#pragma comment(lib, "libhasp_windows_34033.lib")
 
 using namespace std;
 #pragma warning(disable:4996)

@@ -17,8 +17,8 @@ void wait4key(char *hint)
         ;
 }
 int main() {
-    HaspStruct haspStruct = getInfo();
-    HaspStruct haspStruct1 = login(101);
+    HaspStruct haspStruct = getInfo_local();
+    HaspStruct haspStruct1 = login_featureID(101);
     printf("status:%d,获取info状态:%s\n", haspStruct.status,haspStruct.info);
 
     return 0;
